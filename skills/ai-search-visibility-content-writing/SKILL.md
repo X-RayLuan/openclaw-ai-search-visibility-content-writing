@@ -1,7 +1,7 @@
 ---
 name: ai-search-visibility-content-writing
-version: 0.1.0
-description: Use when writing or rewriting articles, landing pages, or knowledge content that should perform well in both classic search and AI-powered search experiences, especially when the task needs answer-first structure, clear entities, non-commodity information gain, and content that is easy for AI systems to extract and cite.
+version: 0.2.0
+description: Use when writing or rewriting articles, landing pages, or knowledge content that should perform well in both classic search and AI-powered search experiences, especially when the task needs answer-first structure, clear entities, non-commodity information gain, human-readable narrative, and content that is easy for AI systems to extract and cite.
 triggers:
   - "ai search visibility content writing"
   - "write this for ai search"
@@ -71,9 +71,13 @@ The page must do all of the following:
 1. Answer the main question early.
 2. Give the reader a better result than generic AI summary sludge.
 3. Make important claims easy to quote, verify, and extract.
-4. Use clear structure so humans and AI systems can navigate the page fast.
-5. Preserve entity clarity: products, tools, terms, and actors should never
+4. Use a deliberate narrative formula before drafting, so the page has a
+   shape instead of becoming an information dump.
+5. Use clear structure so humans and AI systems can navigate the page fast.
+6. Preserve entity clarity: products, tools, terms, and actors should never
    blur together.
+7. Remove obvious AI-writing artifacts through audit and human judgment, not
+   blind AI rewriting.
 
 ## Workflow
 
@@ -90,7 +94,40 @@ This answer should usually appear:
 If the page cannot answer the query directly, the page is probably poorly
 scoped.
 
-### 2. Build the page around subquestions
+### 2. Choose the narrative formula
+
+Pick one writing formula before drafting. The formula is the narrative frame;
+the SEO/GEO pattern is the extraction frame. Use both.
+
+Default choices:
+
+- `QUEST`: tutorial, method, or workflow content
+- `PAS`: pain-point and solution content
+- `AIDA`: product, tool, or feature recommendation content
+- `SCAR`: case study, lived experience, or postmortem content
+- `Decision + BAB`: comparison and before/after decision pages
+- `Contrarian hook + PAS`: AI search, GEO, or strategic opinion content
+
+If none fits, state the chosen structure in plain language before drafting.
+
+### 3. Build the skeleton before the draft
+
+Do not jump from brief to full article. First create a compact skeleton with
+5-8 lines:
+
+- `hook`
+- `core_answer`
+- `formula_stage_map`
+- `subquestion_map`
+- `evidence_slots`
+- `entity_slots`
+- `quoteable_claims`
+- `conversion_path`, when relevant
+
+The skeleton is the real article plan. The draft should fill the skeleton, not
+invent a new shape.
+
+### 4. Build the page around subquestions
 
 Turn the brief into a visible question hierarchy:
 
@@ -102,7 +139,7 @@ Turn the brief into a visible question hierarchy:
 Each major section should resolve one subquestion cleanly. Avoid sections that
 exist only to pad length or sprinkle keywords.
 
-### 3. Write for information gain
+### 5. Write for information gain
 
 The page must contain value beyond common-knowledge explanation.
 
@@ -122,7 +159,7 @@ Avoid:
 - broad overviews that say nothing concrete
 - summary paragraphs that could fit any tool or any company
 
-### 4. Make the page extractable
+### 6. Make the page extractable
 
 AI systems are more likely to use content that is easy to segment and ground.
 Use structure that helps extraction without becoming artificial:
@@ -138,7 +175,7 @@ Use structure that helps extraction without becoming artificial:
 Do not force all formats into every page. Use only the structures that improve
 clarity.
 
-### 5. Protect entity clarity
+### 7. Protect entity clarity
 
 Be precise with names:
 
@@ -151,7 +188,25 @@ Be precise with names:
 
 If a term could mean multiple things, define it once and use it consistently.
 
-### 6. Write for readers first, extraction second
+### 8. Audit for human voice
+
+Use AI to identify likely writing problems, not to blindly rewrite the whole
+piece. Mark issues, then revise with judgment.
+
+Check for:
+
+- over-positioned claims that speak down to the reader
+- template phrases such as "worth noting", "in conclusion", "unlock", or
+  "empower" unless they are genuinely needed
+- repeated symmetric sentence patterns
+- mechanical numbered lists where prose would be clearer
+- paragraph rhythm that stays the same for too long
+- claims without a specific example, constraint, or evidence point
+- generic endings that summarize instead of giving a decision or next step
+
+The final page should still sound like a person with a point of view.
+
+### 9. Write for readers first, extraction second
 
 The page should feel useful to a serious reader, not optimized for a robot at
 the reader's expense.
@@ -185,9 +240,17 @@ When delivering a draft, include:
 
 - proposed `title`
 - proposed `meta_description`
+- `selected_formula`
+- `content_skeleton`
 - the full article body
 - `schema_hints` if relevant
 - `internal_link_suggestions`
+- `platform_variants` when useful:
+  - `clawlite_ready_markdown`
+  - `x_thread`
+  - `linkedin_post`
+  - `faq_schema_hints`
+  - `ai_answer_summary`
 - `self_audit`
 
 The `self_audit` must explicitly answer:
@@ -196,6 +259,8 @@ The `self_audit` must explicitly answer:
 - Where is the strongest information gain?
 - Which sections are most citeable or extractable?
 - Is there any remaining commodity filler to cut?
+- What AI-writing artifacts were found and fixed?
+- What should a human review before publishing?
 
 ## Quality bar
 
@@ -204,15 +269,20 @@ The content passes only if it has:
 - a direct answer near the top
 - a visible section hierarchy
 - consistent entity naming
+- a selected narrative formula
+- a compact skeleton before the draft
 - at least one form of structured clarity where useful
   (`table`, `checklist`, `steps`, or `faq`)
 - concrete claims instead of vague filler
 - non-commodity value
+- a human-voice audit that catches obvious AI artifacts
 
 ## Anti-patterns
 
 - ❌ Keyword stuffing
 - ❌ Generic AI filler paragraphs
+- ❌ Letting AI choose the entire structure after receiving only a topic
+- ❌ Asking AI to "make it sound human" without a specific audit checklist
 - ❌ Fake certainty without evidence
 - ❌ Definitions that never become actionable
 - ❌ Section headings that repeat the same idea in different words
